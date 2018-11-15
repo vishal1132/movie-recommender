@@ -28,5 +28,7 @@ for index,rows in df_production_companies.iterrows():
     for i in range(len(item)):
         content+=""+str(item[i]['name'])+","
     content=content[:-1]
+    content=content.replace(" ","")
+    content=content.replace(","," ")
     df_production_companies.iloc[index]['production_companies']=content    
 df_production_companies.to_csv('production_companies.csv')  

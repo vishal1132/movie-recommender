@@ -27,5 +27,37 @@ for index,rows in df_cast.iterrows():
     for i in range(len(item)):
         content+=""+str(item[i]['name'])+","
     content=content[:-1]
+    content=content.replace(" ","")
+    content=content.replace(","," ")
+    content=content.split()
+    if len(content)==0:
+        first=""
+        second=""
+        third=""
+        fourth=""
+    else:        
+        if len(content)==1:
+            first=content[0]
+            second=""
+            third=""
+            fourth=""
+        else:
+            if len(content)==2:
+                first=content[0]
+                second=content[1]
+                third=""
+                fourth=""
+            else:
+                if len(content)==3:
+                    first=content[0]
+                    second=content[1]
+                    third=content[2]
+                    fourth=""
+                else:
+                    first=content[0]
+                    second=content[1]
+                    third=content[2]
+                    fourth=content[3]
+    content=""+first+" "+second+" "+third+" "+fourth
     df_cast.iloc[index]['cast']=content    
-df_cast.to_csv('cast.csv')  
+df_cast.to_csv('cast.csv')

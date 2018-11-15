@@ -31,5 +31,7 @@ for index,rows in df_production_countries.iterrows():
     for i in range(len(item)):
         content+=""+str(item[i]['name'])+","
     content=content[:-1]
+    content=content.replace(" ","")
+    content=content.replace(","," ")
     df_production_countries.iloc[index]['production_countries']=content
 df_production_countries.to_csv('production_countries.csv')

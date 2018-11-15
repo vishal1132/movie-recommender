@@ -27,5 +27,7 @@ for index,rows in df_keywords.iterrows():
     for i in range(len(item)):
         content+=""+str(item[i]['name'])+","
     content=content[:-1]
+    content=content.replace(" ","")
+    content=content.replace(","," ")
     df_keywords.iloc[index]['keywords']=content    
 df_keywords.to_csv('keywords.csv')  
