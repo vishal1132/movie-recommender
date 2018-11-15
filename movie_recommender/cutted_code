@@ -1,0 +1,18 @@
+#df_genres=df_genres.to_frame()
+#for index, row in df_genres.iterrows():
+#   print(row['genres'])
+
+#reading the data from both movies and credits and then merging them to one useful and then #writing that useful to one csv file.
+df=pd.read_csv("tmdb_5000_movies.csv")
+df1=pd.read_csv("tmdb_5000_credits.csv")
+df1=df1['cast']
+df=df.join(df1)
+useful=df[['genres','keywords','cast','original_title','overview','production_companies','production_countries','tagline','vote_count']]
+df_genres=df['genres']
+useful.to_csv('useful_without_editing.csv')
+
+
+#print(len(item))
+#print(item[0])
+#item=item[0]
+#print(item['name'])
