@@ -10,7 +10,7 @@ import pandas as pd
 
 #only the useful columns are selected after writing the useful columns to
 # a csv file
-df=pd.read_csv("useful_without_editing.csv")
+df=pd.read_csv("useful_without_chinese.csv")
 df=df.drop(['Unnamed: 0'],axis=1)
 
 df_title=df['original_title']

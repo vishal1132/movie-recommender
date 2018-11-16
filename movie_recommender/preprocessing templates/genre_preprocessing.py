@@ -11,7 +11,7 @@ import ast
 
 #only the useful columns are selected after writing the useful columns to
 # a csv file
-df=pd.read_csv("useful_without_editing.csv")
+df=pd.read_csv("useful_without_chinese.csv")
 df=df.drop(['Unnamed: 0'],axis=1)
 
 #editing genre column and extracting the useful information only
@@ -26,7 +26,7 @@ for index,rows in df_genres.iterrows():
     content=""
 #iterating over every row using index    
     item=df_genres.iloc[index]['genres']
-    print(item)
+    #print(item)
     item=ast.literal_eval(item)
     for i in range(len(item)):
         content+=""+str(item[i]['name'])+","
